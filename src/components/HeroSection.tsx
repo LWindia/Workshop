@@ -12,19 +12,27 @@ const HeroSection = () => {
     "/assets/9.jpg", "/assets/10.jpg", "/assets/11.jpg", "/assets/12.jpg",
     "/assets/13.jpg", "/assets/14.jpg", "/assets/15.jpg", "/assets/16.jpg",
     "/assets/17.jpg", "/assets/18.jpg", "/assets/19.jpg", "/assets/20.jpg",
-    "/assets/21.jpg", "/assets/22.jpg", "/assets/23.jpg", "/assets/24.jpg"
+    "/assets/21.jpg", "/assets/22.jpg", "/assets/23.jpg", "/assets/24.jpg",
+    "/assets/25.jpg", "/assets/26.jpg", "/assets/27.jpg", "/assets/28.jpg",
+    "/assets/29.jpg", "/assets/30.jpg", "/assets/31.jpg", "/assets/32.jpg"
   ];
 
   const gradients = [
     "from-blue-200 to-blue-300", "from-red-200 to-red-300", "from-green-200 to-green-300", "from-purple-200 to-purple-300",
     "from-yellow-200 to-yellow-300", "from-indigo-200 to-indigo-300", "from-pink-200 to-pink-300", "from-teal-200 to-teal-300",
     "from-orange-200 to-orange-300", "from-cyan-200 to-cyan-300", "from-lime-200 to-lime-300", "from-rose-200 to-rose-300",
-    "from-violet-200 to-violet-300", "from-emerald-200 to-emerald-300", "from-amber-200 to-amber-300", "from-sky-200 to-sky-300"
+    "from-violet-200 to-violet-300", "from-emerald-200 to-emerald-300", "from-amber-200 to-amber-300", "from-sky-200 to-sky-300",
+    "from-indigo-300 to-indigo-400", "from-pink-300 to-pink-400", "from-teal-300 to-teal-400", "from-orange-300 to-orange-400",
+    "from-cyan-300 to-cyan-400", "from-lime-300 to-lime-400", "from-rose-300 to-rose-400", "from-violet-300 to-violet-400",
+    "from-emerald-300 to-emerald-400", "from-amber-300 to-amber-400", "from-sky-300 to-sky-400", "from-blue-300 to-blue-400",
+    "from-red-300 to-red-400", "from-green-300 to-green-400", "from-purple-300 to-purple-400", "from-yellow-300 to-yellow-400"
   ];
 
   const animationDelays = [
     '0s', '1s', '2s', '0.5s', '1.5s', '2.5s', '0.8s', '1.8s',
-    '0.3s', '1.3s', '2.3s', '0.7s', '1.7s', '2.7s', '0.4s', '1.4s'
+    '0.3s', '1.3s', '2.3s', '0.7s', '1.7s', '2.7s', '0.4s', '1.4s',
+    '0.6s', '1.6s', '2.6s', '0.9s', '1.9s', '2.9s', '0.2s', '1.2s',
+    '2.2s', '0.4s', '1.4s', '2.4s', '0.7s', '1.7s', '2.7s', '1.1s'
   ];
 
   return (
@@ -99,19 +107,20 @@ const HeroSection = () => {
         .stagger-6 { animation-delay: 0.6s; }
         .stagger-7 { animation-delay: 0.7s; }
         .stagger-8 { animation-delay: 0.8s; }
+       
       `}</style>
       
       <section className="min-h-screen flex items-center justify-center relative bg-white overflow-hidden">
         {/* Background Collage */}
-        <div className="absolute inset-0 opacity-12">
+        <div className="absolute inset-0 opacity-14.5">
           <div className="grid grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-2 h-full p-4">
             {workshopImages.map((imageSrc, index) => (
               <div
                 key={index}
-                className={`bg-gradient-to-br ${gradients[index]} rounded-lg overflow-hidden animate-float relative group`}
+                className={`bg-gradient-to-br ${gradients[index]} rounded-lg overflow-hidden animate-float relative group h-full`}
                 style={{ 
                   animationDelay: animationDelays[index],
-                  minHeight: '120px'
+                  minHeight: 'calc(100vh / 6)'
                 }}
               >
                 <img 
@@ -127,42 +136,30 @@ const HeroSection = () => {
                 <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent rounded-lg"></div>
               </div>
             ))}
-            
-            {/* Fill remaining spaces with gradient boxes */}
-            {Array.from({ length: 16 }, (_, index) => (
-              <div
-                key={`extra-${index}`}
-                className={`bg-gradient-to-br ${gradients[index % gradients.length]} rounded-lg animate-float`}
-                style={{ 
-                  animationDelay: `${2 + (index * 0.1)}s`,
-                  minHeight: '120px'
-                }}
-              />
-            ))}
           </div>
         </div>
 
         <div className="container mx-auto px-6 text-center z-10 relative">
           <div className="max-w-4xl mx-auto">
-            <h1 className="text-5xl md:text-7xl font-bold mb-6 text-gray-900">
+            <h1 className="text-5xl md:text-7xl font-bold mb-6 text-black">
               <div className="leading-tight">
                 <div className="animate-slide-in-left stagger-1">THE BIGGEST ONE-DAY</div>
                 <div className="animate-slide-in-left stagger-2">
-                  <span className="text-red-500">FREE</span> TECHNICAL
+                  <span className="text-[#FF0000]">FREE</span> TECHNICAL
                 </div>
                 <div className="animate-slide-in-left stagger-3">HANDS-ON WORKSHOP</div>
               </div>
             </h1>
 
-            <p className="text-xl md:text-2xl text-red-500 font-semibold mb-2 animate-fade-in-up stagger-4">
+            <p className="text-xl md:text-2xl text-[#FF0000] font-bold mb-2 animate-fade-in-up stagger-4">
               JAIPUR EDITION
             </p>
-            
-            <p className="text-lg md:text-xl text-gray-700 font-medium mb-4 animate-fade-in-up stagger-5">
+
+            <p className="text-lg md:text-xl text-gray-900 font-medium mb-4 animate-fade-in-up stagger-5">
               Learn | Build | Network – All in 1 Day!
             </p>
             
-            <p className="text-lg text-gray-600 mb-8 animate-fade-in-up stagger-6">
+            <p className="text-lg text-gray-900 mb-8 animate-fade-in-up stagger-6">
               Hands-on Learning Experience at G D Badaya Auditorium, Mansarovar Jaipur
             </p>
 
@@ -172,7 +169,7 @@ const HeroSection = () => {
                 <span className="font-medium">This Saturday - 26th July 2025</span>
               </div>
               <div className="flex items-center gap-2 bg-white/90 backdrop-blur-sm px-4 py-2 rounded-full shadow-lg border hover-lift animate-fade-in-up stagger-8">
-                <Clock className="w-4 h-4 text-red-500 icon-bounce" />
+                <Clock className="w-4 h-4 text-red-500 icon-bounce text-[#ff0000]" />
                 <span className="font-medium">11:00 AM Onwards</span>
               </div>
               <div className="flex items-center gap-2 bg-white/90 backdrop-blur-sm px-4 py-2 rounded-full shadow-lg border hover-lift animate-fade-in-up">
@@ -188,12 +185,12 @@ const HeroSection = () => {
             <div className="space-y-4">
               <button
                 onClick={scrollToRegistration}
-                className="bg-red-500 hover:bg-red-600 text-white px-8 py-4 rounded-lg text-lg font-medium transition-all duration-300 shadow-xl hover-scale animate-fade-in-up transform hover:shadow-2xl"
+                className="bg-[#FF0000] hover:bg-red-600 text-white px-8 py-4 rounded-lg text-lg font-medium transition-all duration-300 shadow-xl hover-scale animate-fade-in-up transform hover:shadow-2xl"
               >
                 Register Now - FREE Entry
               </button>
 
-              <p className="text-green-600 font-bold text-xl animate-fade-in-up">
+              <p className="text-green-800 ont-bold text-xl animate-fade-in-up">
                 🎉 Absolutely FREE Entry 🎉
               </p>
               
