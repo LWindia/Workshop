@@ -103,7 +103,7 @@ const HeroSection = () => {
       
       <section className="min-h-screen flex items-center justify-center relative bg-white overflow-hidden">
         {/* Background Collage */}
-        <div className="absolute inset-0 opacity-15">
+        <div className="absolute inset-0 opacity-12">
           <div className="grid grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-2 h-full p-4">
             {workshopImages.map((imageSrc, index) => (
               <div
