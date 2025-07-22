@@ -10,27 +10,27 @@ const HeroSection = () => {
   return (
     <section className="min-h-screen flex items-center justify-center relative bg-white overflow-hidden">
       {/* Background Collage */}
-      <div className="absolute inset-0 opacity-10">
+      <div className="absolute inset-0 opacity-20">
         <div className="grid grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-2 h-full">
           {/* Workshop Images Collage */}
-          <div className="bg-gradient-to-br from-blue-200 to-blue-300 rounded-lg animate-float">  <img src="/assets/Untitled-2.jpg" alt="description" className="w-full h-auto rounded-lg" />
+          <div className="bg-gradient-to-br from-blue-200 to-blue-300 rounded-lg animate-float">  <img src="/assets/Untitled-2 (1).jpg" alt="description" className="w-full h-auto rounded-lg" />
            </div>
           <div className="bg-gradient-to-br from-red-200 to-red-300 rounded-lg animate-float" style={{ animationDelay: '1s' }}> <img src="/assets/Untitled-2.jpg" alt="description" className="w-full h-auto rounded-lg" /></div>
-          <div className="bg-gradient-to-br from-green-200 to-green-300 rounded-lg animate-float" style={{ animationDelay: '2s' }}></div>
-          <div className="bg-gradient-to-br from-purple-200 to-purple-300 rounded-lg animate-float" style={{ animationDelay: '0.5s' }}></div>
-          <div className="bg-gradient-to-br from-yellow-200 to-yellow-300 rounded-lg animate-float" style={{ animationDelay: '1.5s' }}></div>
-          <div className="bg-gradient-to-br from-indigo-200 to-indigo-300 rounded-lg animate-float" style={{ animationDelay: '2.5s' }}></div>
-          <div className="bg-gradient-to-br from-pink-200 to-pink-300 rounded-lg animate-float" style={{ animationDelay: '0.8s' }}></div>
-          <div className="bg-gradient-to-br from-teal-200 to-teal-300 rounded-lg animate-float" style={{ animationDelay: '1.8s' }}></div>
-          
-          <div className="bg-gradient-to-br from-orange-200 to-orange-300 rounded-lg animate-float" style={{ animationDelay: '0.3s' }}></div>
-          <div className="bg-gradient-to-br from-cyan-200 to-cyan-300 rounded-lg animate-float" style={{ animationDelay: '1.3s' }}></div>
-          <div className="bg-gradient-to-br from-lime-200 to-lime-300 rounded-lg animate-float" style={{ animationDelay: '2.3s' }}></div>
-          <div className="bg-gradient-to-br from-rose-200 to-rose-300 rounded-lg animate-float" style={{ animationDelay: '0.7s' }}></div>
-          <div className="bg-gradient-to-br from-violet-200 to-violet-300 rounded-lg animate-float" style={{ animationDelay: '1.7s' }}></div>
-          <div className="bg-gradient-to-br from-emerald-200 to-emerald-300 rounded-lg animate-float" style={{ animationDelay: '2.7s' }}></div>
-          <div className="bg-gradient-to-br from-amber-200 to-amber-300 rounded-lg animate-float" style={{ animationDelay: '0.4s' }}></div>
-          <div className="bg-gradient-to-br from-sky-200 to-sky-300 rounded-lg animate-float" style={{ animationDelay: '1.4s' }}></div>
+          <div className="bg-gradient-to-br from-green-200 to-green-300 rounded-lg animate-float" style={{ animationDelay: '2s' }}> <img src="/assets/Untitled-2.jpg" alt="description" className="w-full h-auto rounded-lg" /></div>
+          <div className="bg-gradient-to-br from-purple-200 to-purple-300 rounded-lg animate-float" style={{ animationDelay: '0.5s' }}> <img src="/assets/Untitled-2.jpg" alt="description" className="w-full h-auto rounded-lg" /></div>
+          <div className="bg-gradient-to-br from-yellow-200 to-yellow-300 rounded-lg animate-float" style={{ animationDelay: '1.5s' }}> <img src="/assets/Untitled-2.jpg" alt="description" className="w-full h-auto rounded-lg" /></div>
+          <div className="bg-gradient-to-br from-indigo-200 to-indigo-300 rounded-lg animate-float" style={{ animationDelay: '2.5s' }}> <img src="/assets/Untitled-2.jpg" alt="description" className="w-full h-auto rounded-lg" /></div>
+          <div className="bg-gradient-to-br from-pink-200 to-pink-300 rounded-lg animate-float" style={{ animationDelay: '0.8s' }}> <img src="/assets/Untitled-2.jpg" alt="description" className="w-full h-auto rounded-lg" /></div>
+          <div className="bg-gradient-to-br from-teal-200 to-teal-300 rounded-lg animate-float" style={{ animationDelay: '1.8s' }}> <img src="/assets/Untitled-2.jpg" alt="description" className="w-full h-auto rounded-lg" /></div>
+
+          <div className="bg-gradient-to-br from-orange-200 to-orange-300 rounded-lg animate-float" style={{ animationDelay: '0.3s' }}> <img src="/assets/Untitled-2.jpg" alt="description" className="w-full h-auto rounded-lg" /></div>
+          <div className="bg-gradient-to-br from-cyan-200 to-cyan-300 rounded-lg animate-float" style={{ animationDelay: '1.3s' }}> <img src="/assets/Untitled-2.jpg" alt="description" className="w-full h-auto rounded-lg" /></div>
+          <div className="bg-gradient-to-br from-lime-200 to-lime-300 rounded-lg animate-float" style={{ animationDelay: '2.3s' }}> <img src="/assets/Untitled-2.jpg" alt="description" className="w-full h-auto rounded-lg" /></div>
+          <div className="bg-gradient-to-br from-rose-200 to-rose-300 rounded-lg animate-float" style={{ animationDelay: '0.7s' }}> <img src="/assets/Untitled-2.jpg" alt="description" className="w-full h-auto rounded-lg" /></div>
+          <div className="bg-gradient-to-br from-violet-200 to-violet-300 rounded-lg animate-float" style={{ animationDelay: '1.7s' }}> <img src="/assets/Untitled-2.jpg" alt="description" className="w-full h-auto rounded-lg" /></div>
+          <div className="bg-gradient-to-br from-emerald-200 to-emerald-300 rounded-lg animate-float" style={{ animationDelay: '2.7s' }}> <img src="/assets/Untitled-2.jpg" alt="description" className="w-full h-auto rounded-lg" /></div>
+          <div className="bg-gradient-to-br from-amber-200 to-amber-300 rounded-lg animate-float" style={{ animationDelay: '0.4s' }}> <img src="/assets/Untitled-2.jpg" alt="description" className="w-full h-auto rounded-lg" /></div>
+          <div className="bg-gradient-to-br from-sky-200 to-sky-300 rounded-lg animate-float" style={{ animationDelay: '1.4s' }}> <img src="/assets/Untitled-2.jpg" alt="description" className="w-full h-auto rounded-lg" /></div>
           
           <div className="bg-gradient-to-br from-blue-200 to-blue-300 rounded-lg animate-float" style={{ animationDelay: '2.4s' }}></div>
           <div className="bg-gradient-to-br from-red-200 to-red-300 rounded-lg animate-float" style={{ animationDelay: '0.6s' }}></div>
