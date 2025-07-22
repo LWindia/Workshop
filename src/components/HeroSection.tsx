@@ -84,7 +84,33 @@ const HeroSection = () => {
         }
       `}</style>
 
-      <section className="min-h-screen flex items-center justify-center relative bg-white overflow-hidden">
+    {/* Navigation Bar */}
+      <nav className="fixed top-0 left-0 right-0 z-50 bg-transparent backdrop-blur-md shadow-lg ">
+        <div className="container mx-auto px-2 md:px-2 py-3 md:py-2">
+          <div className="flex items-center justify-between">
+            {/* Logo on the left */}
+            <a 
+              href="https://lw.hash13.com/" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="flex items-center hover:opacity-80 transition-opacity duration-300"
+            >
+              <div className="w-24 h-auto">
+                <img
+                  src="/assets/hash13.png" // ← Make sure this path is correct
+                  alt="LW HASH Logo"
+                  className="w-full h-auto object-contain"
+                />
+              </div>
+            </a>
+
+            {/* Optional: Add navigation links or buttons here on the right */}
+          </div>
+        </div>
+      </nav>
+
+
+      <section className="min-h-screen flex items-center justify-center relative bg-white overflow-hidden pt-16 md:pt-20">
         {/* Background Collage */}
         <div className="absolute inset-0 opacity-14.5 z-0">
           <div className="mobile-bg-grid grid grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-2 md:gap-2 h-full p-2 md:p-4">
