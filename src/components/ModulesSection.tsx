@@ -45,7 +45,7 @@ const ModulesSection = () => {
               style={{ animationDelay: `${0.3 + index * 0.1}s` }}
             >
               <div className="flex items-center gap-4">
-                <div className="bg-red-500 text-white px-3 py-1 rounded-full text-sm font-medium flex items-center gap-2 icon-bounce">
+                <div className="bg-[#ff0000] text-white px-3 py-1 rounded-full text-sm font-medium flex items-center gap-2 icon-bounce">
                   <Clock className="w-4 h-4" />
                   {module.hour}
                 </div>

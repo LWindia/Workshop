@@ -110,7 +110,7 @@ const RegistrationSection = () => {
                       placeholder="Enter your full name"
                     />
                     {errors.fullName && (
-                      <p className="text-red-500 text-sm mt-1 animate-bounce-in">{errors.fullName.message}</p>
+                      <p className="text-[#FF0000] text-sm mt-1 animate-bounce-in">{errors.fullName.message}</p>
                     )}
                   </div>
 
@@ -127,11 +127,11 @@ const RegistrationSection = () => {
                           message: 'Please enter a valid 10-digit mobile number'
                         }
                       })}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:border-red-500 focus:outline-none hover-scale"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:border-[#FF0000] focus:outline-none hover-scale"
                       placeholder="10-digit mobile number"
                     />
                     {errors.mobileNumber && (
-                      <p className="text-red-500 text-sm mt-1 animate-bounce-in">{errors.mobileNumber.message}</p>
+                      <p className="text-[#FF0000] text-sm mt-1 animate-bounce-in">{errors.mobileNumber.message}</p>
                     )}
                   </div>
                 </div>
@@ -151,11 +151,11 @@ const RegistrationSection = () => {
                         }
                       })}
                       type="email"
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:border-red-500 focus:outline-none hover-scale"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:border-[#FF0000] focus:outline-none hover-scale"
                       placeholder="Enter your email"
                     />
                     {errors.email && (
-                      <p className="text-red-500 text-sm mt-1 animate-bounce-in">{errors.email.message}</p>
+                      <p className="text-[#FF0000] text-sm mt-1 animate-bounce-in">{errors.email.message}</p>
                     )}
                   </div>
 
@@ -165,7 +165,7 @@ const RegistrationSection = () => {
                     </label>
                     <select
                       {...register('currentQualification', { required: 'Please select your qualification' })}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:border-red-500 focus:outline-none hover-scale"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:border-[#FF0000] focus:outline-none hover-scale"
                     >
                       <option value="">Select your qualification</option>
                       <option value="B.Tech (CSE/IT/Other)">B.Tech (CSE/IT/Other)</option>
@@ -177,7 +177,7 @@ const RegistrationSection = () => {
                       <option value="Others">Others</option>
                     </select>
                     {errors.currentQualification && (
-                      <p className="text-red-500 text-sm mt-1 animate-bounce-in">{errors.currentQualification.message}</p>
+                      <p className="text-[#FF0000] text-sm mt-1 animate-bounce-in">{errors.currentQualification.message}</p>
                     )}
                   </div>
                 </div>
@@ -190,11 +190,11 @@ const RegistrationSection = () => {
                     </label>
                     <input
                       {...register('collegeUniversity', { required: 'College/University name is required' })}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:border-red-500 focus:outline-none hover-scale"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:border-[#FF0000] focus:outline-none hover-scale"
                       placeholder="Enter your college/university name"
                     />
                     {errors.collegeUniversity && (
-                      <p className="text-red-500 text-sm mt-1 animate-bounce-in">{errors.collegeUniversity.message}</p>
+                      <p className="text-[#FF0000] text-sm mt-1 animate-bounce-in">{errors.collegeUniversity.message}</p>
                     )}
                   </div>
 
@@ -205,11 +205,11 @@ const RegistrationSection = () => {
                     </label>
                     <input
                       {...register('city', { required: 'City is required' })}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:border-red-500 focus:outline-none hover-scale"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:border-[#FF0000] focus:outline-none hover-scale"
                       placeholder="Enter your city"
                     />
                     {errors.city && (
-                      <p className="text-red-500 text-sm mt-1 animate-bounce-in">{errors.city.message}</p>
+                      <p className="text-[#FF0000] text-sm mt-1 animate-bounce-in">{errors.city.message}</p>
                     )}
                   </div>
                 </div>
@@ -222,7 +222,7 @@ const RegistrationSection = () => {
                   <textarea
                     {...register('motivation')}
                     rows={4}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:border-red-500 focus:outline-none resize-none hover-scale"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:border-[#FF0000] focus:outline-none resize-none hover-scale"
                     placeholder="Share your learning goals and what you hope to achieve..."
                   />
                 </div>
@@ -246,21 +246,21 @@ const RegistrationSection = () => {
                           type="checkbox"
                           value={option}
                           {...register('howDidYouHear')}
-                          className="rounded border-gray-300 text-red-500 focus:ring-red-500"
+                          className="rounded border-gray-300 text-[#FF0000] focus:ring-[#FF0000]"
                         />
                         <span className="text-sm text-gray-700">{option}</span>
                       </label>
                     ))}
                   </div>
                   {errors.howDidYouHear && (
-                    <p className="text-red-500 text-sm mt-1 animate-bounce-in">Please select at least one option</p>
+                    <p className="text-[#FF0000] text-sm mt-1 animate-bounce-in">Please select at least one option</p>
                   )}
                 </div>
 
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full bg-red-500 hover:bg-red-600 disabled:bg-gray-400 text-white py-4 rounded-lg text-lg font-medium transition-colors btn-animate hover-scale"
+                  className="w-full bg-[#FF0000] hover:bg-[#FF0000] disabled:bg-gray-400 text-white py-4 rounded-lg text-lg font-medium transition-colors btn-animate hover-scale"
                 >
                   {isSubmitting ? 'Submitting...' : 'Reserve My Free Seat'}
                 </button>
@@ -279,23 +279,23 @@ const RegistrationSection = () => {
               <h3 className="text-xl font-bold text-gray-900 mb-4">Workshop Highlights</h3>
               <ul className="space-y-3">
                 <li className="flex items-center space-x-3 text-gray-700">
-                  <div className="w-2 h-2 bg-red-500 rounded-full"></div>
+                  <div className="w-2 h-2 bg-[#FF0000] rounded-full"></div>
                   <span>Hands-on Docker containerization</span>
                 </li>
                 <li className="flex items-center space-x-3 text-gray-700">
-                  <div className="w-2 h-2 bg-red-500 rounded-full"></div>
+                  <div className="w-2 h-2 bg-[#FF0000] rounded-full"></div>
                   <span>AI & Machine Learning fundamentals</span>
                 </li>
                 <li className="flex items-center space-x-3 text-gray-700">
-                  <div className="w-2 h-2 bg-red-500 rounded-full"></div>
+                  <div className="w-2 h-2 bg-[#FF0000] rounded-full"></div>
                   <span>Real-world project building</span>
                 </li>
                 <li className="flex items-center space-x-3 text-gray-700">
-                  <div className="w-2 h-2 bg-red-500 rounded-full"></div>
+                  <div className="w-2 h-2 bg-[#FF0000] rounded-full"></div>
                   <span>Certificate of participation</span>
                 </li>
                 <li className="flex items-center space-x-3 text-gray-700">
-                  <div className="w-2 h-2 bg-red-500 rounded-full"></div>
+                  <div className="w-2 h-2 bg-[#FF0000] rounded-full"></div>
                   <span>Networking with tech enthusiasts</span>
                 </li>
               </ul>
@@ -325,9 +325,9 @@ const RegistrationSection = () => {
             </div>
 
             {/* Contact Info */}
-            <div className="bg-gradient-to-r from-red-500 to-red-600 rounded-2xl p-6 text-white card-hover">
+            <div className="bg-gradient-to-r from-[#FF0000] to-[#FF0000] rounded-2xl p-6 text-white card-hover">
               <h3 className="text-xl font-bold mb-4">Need Help?</h3>
-              <p className="text-red-100 mb-4">
+              <p className="text-white mb-4">
                 Have questions about the workshop? Contact us:
               </p>
               <div className="space-y-2">

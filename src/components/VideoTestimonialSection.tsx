@@ -176,7 +176,7 @@ const VideoTestimonialSection = () => {
             <div className="grid grid-cols-3 gap-4 mb-8">
               {testimonialData.stats.map((stat, index) => (
                 <div key={index} className="text-center bg-white rounded-lg p-4 shadow-sm transform hover:scale-105 transition-transform duration-300">
-                  <div className="text-red-500 mb-2 flex justify-center">
+                  <div className="text-[#FF0000] mb-2 flex justify-center">
                     {stat.icon}
                   </div>
                   <div className="text-2xl font-bold text-gray-900">{stat.value}</div>
@@ -186,9 +186,9 @@ const VideoTestimonialSection = () => {
             </div>
 
             {/* Current Video Testimonial */}
-            <div className="bg-white rounded-lg p-6 shadow-sm border-l-4 border-red-500 transform hover:scale-105 transition-transform duration-300">
+            <div className="bg-white rounded-lg p-6 shadow-sm border-l-4 border-[#FF0000] transform hover:scale-105 transition-transform duration-300">
               <div className="flex items-start space-x-3">
-                <Quote className="w-6 h-6 text-red-500 mt-1 flex-shrink-0" />
+                <Quote className="w-6 h-6 text-[#FF0000] mt-1 flex-shrink-0" />
                 <div className="flex-1">
                   <p className="text-gray-700 mb-3 italic">
                     "{currentVideo.quote}"
@@ -227,7 +227,7 @@ const VideoTestimonialSection = () => {
 
         {/* Call to Action */}
         <div className="text-center mt-12">
-          <div className="bg-gradient-to-r from-red-500 to-red-600 rounded-2xl p-8 text-white transform hover:scale-105 transition-transform duration-300">
+          <div className="bg-gradient-to-r from-[#FF0000] to-[#FF0000] rounded-2xl p-8 text-white transform hover:scale-105 transition-transform duration-300">
             <h3 className="text-2xl font-bold mb-4">
               Ready to Transform Your Career?
             </h3>

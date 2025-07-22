@@ -21,11 +21,16 @@ const MentorSection = () => {
           <div className="bg-white border rounded-lg p-8 shadow-sm">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
               <div className="text-center lg:text-left">
-                <div className="w-24 h-24 bg-red-500 rounded-full flex items-center justify-center mb-4 mx-auto lg:mx-0">
-                  <span className="text-2xl font-bold text-white">VD</span>
-                </div>
+                 <div className="w-24 h-24 bg-[#FF0000] rounded-full flex items-center justify-center mb-4 mx-auto lg:mx-0 overflow-hidden">
+                    <img
+                          src="/assets/vimalsir.jpeg"
+                          alt="Vimal Daga"
+                          className="w-full h-full object-cover"
+                        />
+                      </div>
+
                 <h3 className="text-2xl font-bold text-gray-900 mb-2">Mr. Vimal Daga</h3>
-                <p className="text-red-500 font-medium mb-4">World Record Holder | India's Most Loved Technical Mentor</p>
+                <p className="text-[#FF0000] font-medium mb-4">World Record Holder | India's Most Loved Technical Mentor</p>
                 <p className="text-gray-600 mb-6">
                   Learn directly from the one who's transformed 10,00,000+ careers! 
                   Delivered LIVE & HANDS-ON by the most loved technical mentor in India.
@@ -34,7 +39,7 @@ const MentorSection = () => {
                 <div className="flex gap-6 justify-center lg:justify-start">
                   {stats.map((stat, index) => (
                     <div key={index} className="text-center">
-                      <div className="flex items-center justify-center text-red-500 mb-1">
+                      <div className="flex items-center justify-center text-[#FF0000] mb-1">
                         {stat.icon}
                       </div>
                       <div className="text-lg font-bold text-gray-900">{stat.value}</div>
@@ -45,12 +50,12 @@ const MentorSection = () => {
               </div>
 
               <div className="bg-gray-50 border rounded-lg p-6">
-                <Quote className="w-8 h-8 text-red-500 mb-4" />
+                <Quote className="w-8 h-8 text-[#FF0000] mb-4" />
                 <blockquote className="text-gray-800 mb-4 italic">
                   "Let's build things that work in the real world. Every line of code 
                   should solve a real problem and create value."
                 </blockquote>
-                <div className="text-red-500 font-medium">- Vimal Daga</div>
+                <div className="text-[#FF0000] font-medium">- Vimal Daga</div>
               </div>
             </div>
           </div>

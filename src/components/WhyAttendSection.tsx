@@ -54,7 +54,7 @@ const WhyAttendSection = () => {
               className="bg-white p-6 rounded-lg border hover:shadow-md transition-shadow card-hover animate-fade-in-up"
               style={{ animationDelay: `${0.2 + index * 0.1}s` }}
             >
-              <div className="text-red-500 mb-3 icon-bounce">
+              <div className="text-[#FF0000] mb-3 icon-bounce">
                 {reason.icon}
               </div>
               <h3 className="text-lg font-semibold mb-2 text-gray-900">

@@ -11,7 +11,7 @@ const Footer = () => {
               Brought to you by:
             </h3>
             <div className="mb-4 animate-fade-in-up stagger-2">
-              <h4 className="text-lg font-bold text-red-500 mb-1 animate-fade-in-up stagger-3">
+              <h4 className="text-lg font-bold text-[#FF0000] mb-1 animate-fade-in-up stagger-3">
                 LinuxWorld Informatics Pvt Ltd
               </h4>
               <p className="text-white animate-fade-in-up stagger-4">
@@ -29,7 +29,7 @@ const Footer = () => {
               href="https://github.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-gray-300 hover:text-red-500 transition-colors icon-bounce hover-scale"
+              className="text-gray-300 hover:text-[#FF0000] transition-colors icon-bounce hover-scale"
             >
               <Github className="w-5 h-5" />
             </a>
@@ -37,13 +37,13 @@ const Footer = () => {
               href="https://linkedin.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-gray-300 hover:text-red-500 transition-colors icon-bounce hover-scale"
+              className="text-gray-300 hover:text-[#FF0000] transition-colors icon-bounce hover-scale"
             >
               <Linkedin className="w-5 h-5" />
             </a>
             <a
               href="mailto:contact@workshop.com"
-              className="text-gray-300 hover:text-red-500 transition-colors icon-bounce hover-scale"
+              className="text-gray-300 hover:text-[#FF0000] transition-colors icon-bounce hover-scale"
             >
               <Mail className="w-5 h-5" />
             </a>
@@ -51,12 +51,12 @@ const Footer = () => {
 
           <div className="border-t border-gray-700 pt-6 animate-fade-in-up stagger-6">
             <p className="text-white flex items-center justify-center gap-2 animate-fade-in-up stagger-7">
-              Made with <Heart className="w-4 h-4 text-red-500 animate-pulse" fill="currentColor" /> for India's Tech Learners By{' '}
+              Made with <Heart className="w-4 h-4 text-[#FF0000] animate-pulse" fill="currentColor" /> for India's Tech Learners By{' '}
               <a
                 href="https://www.linkedin.com/in/jibbran-ali/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-red-500 hover:text-red-400 transition-colors font-semibold hover-scale"
+                className="text-[#FF0000] hover:text-[#FF0000] transition-colors font-semibold hover-scale"
               >
                 Jibbran Ali
               </a>

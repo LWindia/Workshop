@@ -60,7 +60,7 @@ const WhoShouldAttendSection = () => {
               key={index}
               className="bg-gray-50 p-6 rounded-lg border hover:shadow-md transition-shadow"
             >
-              <div className="text-red-500 mb-3">
+              <div className="text-[#FF0000] mb-3">
                 {audience.icon}
               </div>
               <h3 className="text-lg font-semibold mb-2 text-gray-900">
@@ -74,12 +74,12 @@ const WhoShouldAttendSection = () => {
         </div>
 
         <div className="text-center mt-12">
-          <div className="bg-red-50 border border-red-200 rounded-lg p-6 max-w-2xl mx-auto">
-            <Target className="w-8 h-8 text-red-500 mx-auto mb-4" />
-            <h3 className="text-xl font-semibold text-gray-900 mb-2">
+          <div className="bg-[#FF0000] border border-[#FF0000] rounded-lg p-6 max-w-2xl mx-auto">
+            <Target className="w-8 h-8 text-[#FF0000] mx-auto mb-4" />
+            <h3 className="text-xl font-semibold text-black mb-2">
               Perfect for All Skill Levels
             </h3>
-            <p className="text-gray-600">
+            <p className="text-gray-900">
               Whether you're a complete beginner or an experienced developer, 
               this workshop will provide valuable insights and hands-on experience 
               with the latest technologies.
