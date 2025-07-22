@@ -1,17 +1,19 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Play, Pause, Volume2, VolumeX, Maximize2, Quote, Star, Users, Award, ChevronLeft, ChevronRight } from 'lucide-react';
 
 const VideoTestimonialSection = () => {
   const [currentVideoIndex, setCurrentVideoIndex] = useState(0);
   const [isPlaying, setIsPlaying] = useState(false);
   const [isMuted, setIsMuted] = useState(false);
+  const [showVideo, setShowVideo] = useState(false);
+  const videoRef = useRef<HTMLVideoElement | null>(null);
 
   const videoTestimonials = [
     {
       id: 1,
       title: "Priya's Success Story",
       subtitle: "B.Tech CSE Student - Placed at 12 LPA",
-      videoUrl: "YOUR_VIDEO_URL_1_HERE",
+      videoUrl: "/assets/Testimonial/T1.mp4",
       thumbnail: "https://images.unsplash.com/photo-1494790108755-2616b612b786?w=400&h=300&fit=crop",
       quote: "The hands-on project building experience was incredible. I learned Docker and AI in just one day!",
       name: "Priya Sharma",
@@ -23,7 +25,7 @@ const VideoTestimonialSection = () => {
       id: 2,
       title: "Rahul's Career Transformation",
       subtitle: "BCA Student - Now Working at Top Tech Company",
-      videoUrl: "YOUR_VIDEO_URL_2_HERE",
+      videoUrl: "/assets/Testimonial/T2.mp4",
       thumbnail: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=300&fit=crop",
       quote: "Mr. Vimal Daga's teaching style is amazing. I got placed with a 12 LPA package after this workshop!",
       name: "Rahul Kumar",
@@ -35,7 +37,7 @@ const VideoTestimonialSection = () => {
       id: 3,
       title: "Anjali's Professional Growth",
       subtitle: "Working Professional - Enhanced Skills",
-      videoUrl: "YOUR_VIDEO_URL_3_HERE",
+      videoUrl: "/assets/Testimonial/T3.mp4",
       thumbnail: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&h=300&fit=crop",
       quote: "Best investment of my Saturday. Learned practical skills that I use daily in my job.",
       name: "Anjali Patel",
@@ -47,7 +49,7 @@ const VideoTestimonialSection = () => {
       id: 4,
       title: "Amit's Learning Journey",
       subtitle: "Final Year Student - Ready for Placements",
-      videoUrl: "YOUR_VIDEO_URL_4_HERE",
+      videoUrl: "/assets/Testimonial/T4.mp4",
       thumbnail: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=300&fit=crop",
       quote: "This workshop gave me the confidence to face technical interviews. Highly recommended!",
       name: "Amit Singh",
@@ -59,7 +61,7 @@ const VideoTestimonialSection = () => {
       id: 5,
       title: "Neha's Skill Development",
       subtitle: "MCA Student - Mastered New Technologies",
-      videoUrl: "YOUR_VIDEO_URL_5_HERE",
+      videoUrl: "/assets/Testimonial/T5.mp4",
       thumbnail: "https://images.unsplash.com/photo-1494790108755-2616b612b786?w=400&h=300&fit=crop",
       quote: "The practical approach helped me understand complex concepts easily. Great learning experience!",
       name: "Neha Gupta",
@@ -88,26 +90,70 @@ const VideoTestimonialSection = () => {
     ));
   };
 
+  const togglePlayPause = () => {
+    const video = videoRef.current;
+    if (video) {
+      if (isPlaying) {
+        video.pause();
+      } else {
+        video.play();
+      }
+      setIsPlaying(!isPlaying);
+    } else {
+      // If video element doesn't exist, show the video
+      setShowVideo(true);
+      setIsPlaying(true);
+    }
+  };
+
+  const toggleMute = () => {
+    const video = videoRef.current;
+    if (video) {
+      video.muted = !isMuted;
+      setIsMuted(!isMuted);
+    }
+  };
+
+  const handleVideoLoad = () => {
+    const video = videoRef.current;
+    if (video && isPlaying) {
+      video.play();
+    }
+  };
+
+  const handleVideoEnded = () => {
+    setIsPlaying(false);
+    setShowVideo(false);
+  };
+
   const nextVideo = () => {
     setCurrentVideoIndex((prev) => (prev + 1) % videoTestimonials.length);
+    setIsPlaying(false);
+    setShowVideo(false);
   };
 
   const prevVideo = () => {
     setCurrentVideoIndex((prev) => (prev - 1 + videoTestimonials.length) % videoTestimonials.length);
+    setIsPlaying(false);
+    setShowVideo(false);
   };
 
   const goToVideo = (index: number) => {
     setCurrentVideoIndex(index);
+    setIsPlaying(false);
+    setShowVideo(false);
   };
 
-  // Auto-advance carousel every 5 seconds
+  // Auto-advance carousel every 5 seconds (only when not playing video)
   useEffect(() => {
-    const interval = setInterval(() => {
-      nextVideo();
-    }, 5000);
+    if (!isPlaying) {
+      const interval = setInterval(() => {
+        nextVideo();
+      }, 5000);
 
-    return () => clearInterval(interval);
-  }, []);
+      return () => clearInterval(interval);
+    }
+  }, [isPlaying]);
 
   const currentVideo = videoTestimonials[currentVideoIndex];
 
@@ -124,46 +170,74 @@ const VideoTestimonialSection = () => {
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-7xl mx-auto">
-          {/* 3D Video Carousel Section */}
+          {/* Video Player Section */}
           <div className="relative">
             <div className="bg-black rounded-2xl overflow-hidden shadow-2xl">
               <div className="aspect-video relative">
-                {/* Main Video Display */}
-                <div className="w-full h-full bg-gradient-to-br from-red-500 to-red-600 flex items-center justify-center relative overflow-hidden">
-                  <div className="text-center text-white z-10">
-                    <div className="w-20 h-20 bg-white bg-opacity-20 rounded-full flex items-center justify-center mb-4 mx-auto backdrop-blur-sm">
-                      <Play className="w-8 h-8 text-white ml-1" />
-                    </div>
-                    <h3 className="text-xl font-bold mb-2">{currentVideo.title}</h3>
-                    <p className="text-sm opacity-80 mb-4">{currentVideo.subtitle}</p>
-                    <p className="text-lg font-medium">Video Testimonial</p>
-                    <p className="text-sm opacity-80">Click to play testimonial video</p>
-                  </div>
-                  
-                  {/* Background Image */}
+                {showVideo ? (
+                  // Actual Video Player
+                  <video
+                    ref={videoRef}
+                    className="w-full h-full object-cover"
+                    poster={currentVideo.thumbnail}
+                    onLoadedData={handleVideoLoad}
+                    onEnded={handleVideoEnded}
+                    muted={isMuted}
+                    onClick={togglePlayPause}
+                  >
+                    <source src={currentVideo.videoUrl} type="video/mp4" />
+                    Your browser does not support the video tag.
+                  </video>
+                ) : (
+                  // Video Thumbnail/Placeholder
                   <div 
-                    className="absolute inset-0 bg-cover bg-center opacity-20"
-                    style={{ backgroundImage: `url(${currentVideo.thumbnail})` }}
-                  />
-                </div>
+                    className="w-full h-full bg-gradient-to-br from-red-500 to-red-600 flex items-center justify-center relative overflow-hidden cursor-pointer"
+                    onClick={togglePlayPause}
+                  >
+                    <div className="text-center text-white z-10">
+                      <div className="w-20 h-20 bg-white bg-opacity-20 rounded-full flex items-center justify-center mb-4 mx-auto backdrop-blur-sm hover:bg-opacity-30 transition-all duration-300 transform hover:scale-110">
+                        <Play className="w-8 h-8 text-white ml-1" />
+                      </div>
+                      <h3 className="text-xl font-bold mb-2">{currentVideo.title}</h3>
+                      <p className="text-sm opacity-80 mb-4">{currentVideo.subtitle}</p>
+                      <p className="text-lg font-medium">Video Testimonial</p>
+                      <p className="text-sm opacity-80">Click to play testimonial video</p>
+                    </div>
+                    
+                    {/* Background Image */}
+                    <div 
+                      className="absolute inset-0 bg-cover bg-center opacity-20"
+                      style={{ backgroundImage: `url(${currentVideo.thumbnail})` }}
+                    />
+                  </div>
+                )}
                 
                 {/* Video Controls */}
                 <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between bg-black bg-opacity-50 rounded-lg p-3 backdrop-blur-sm">
                   <div className="flex items-center space-x-3">
                     <button
-                      onClick={() => setIsPlaying(!isPlaying)}
+                      onClick={togglePlayPause}
                       className="text-white hover:text-red-400 transition-colors"
                     >
                       {isPlaying ? <Pause className="w-5 h-5" /> : <Play className="w-5 h-5" />}
                     </button>
                     <button
-                      onClick={() => setIsMuted(!isMuted)}
+                      onClick={toggleMute}
                       className="text-white hover:text-red-400 transition-colors"
                     >
                       {isMuted ? <VolumeX className="w-5 h-5" /> : <Volume2 className="w-5 h-5" />}
                     </button>
                   </div>
-                  <button className="text-white hover:text-red-400 transition-colors">
+                  <button 
+                    className="text-white hover:text-red-400 transition-colors"
+                    onClick={() => {
+                      if (videoRef.current) {
+                        if (videoRef.current.requestFullscreen) {
+                          videoRef.current.requestFullscreen();
+                        }
+                      }
+                    }}
+                  >
                     <Maximize2 className="w-5 h-5" />
                   </button>
                 </div>
@@ -254,15 +328,19 @@ const VideoTestimonialSection = () => {
               </div>
             </div>
 
-            {/* Video Progress */}
+            {/* Video Status */}
             <div className="bg-white rounded-lg p-4 shadow-sm">
               <div className="flex items-center justify-between mb-2">
-                <span className="text-sm font-medium text-gray-700">Video Progress</span>
+                <span className="text-sm font-medium text-gray-700">
+                  {showVideo && isPlaying ? 'Now Playing' : 'Video Progress'}
+                </span>
                 <span className="text-sm text-gray-500">{currentVideoIndex + 1} of {videoTestimonials.length}</span>
               </div>
               <div className="w-full bg-gray-200 rounded-full h-2">
                 <div 
-                  className="bg-red-500 h-2 rounded-full transition-all duration-500 ease-out"
+                  className={`h-2 rounded-full transition-all duration-500 ease-out ${
+                    showVideo && isPlaying ? 'bg-green-500' : 'bg-red-500'
+                  }`}
                   style={{ width: `${((currentVideoIndex + 1) / videoTestimonials.length) * 100}%` }}
                 />
               </div>
@@ -289,4 +367,4 @@ const VideoTestimonialSection = () => {
   );
 };
 
-export default VideoTestimonialSection; 
+export default VideoTestimonialSection;
