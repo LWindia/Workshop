@@ -26,7 +26,7 @@ const RegistrationSection = () => {
       console.log('Form data:', data);
       
       // Google Apps Script deployment URL
-      const scriptUrl = 'https://script.google.com/macros/s/AKfycbw00MapyY7HnvAqOeM3mrQN4kFmAoo5xS4EaU9e9f4XKczXGxfAW3pRVnLj73hkFQddHA/exec';
+      const scriptUrl = 'https://script.google.com/macros/s/AKfycbzMuZd6hpL6u4DN9nt5Ieb9LtXxGhdxg8ik4LXjI4rC-v_-n12hyMPN0qwcMqldTw-4Kg/exec';
       
       // Create FormData instead of JSON for better compatibility
       const formData = new FormData();

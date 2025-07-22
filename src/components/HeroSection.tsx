@@ -15,7 +15,7 @@ const HeroSection = () => {
           {/* Workshop Images Collage */}
           <div className="bg-gradient-to-br from-blue-200 to-blue-300 rounded-lg animate-float">  <img src="/assets/Untitled-2.jpg" alt="description" className="w-full h-auto rounded-lg" />
            </div>
-          <div className="bg-gradient-to-br from-red-200 to-red-300 rounded-lg animate-float" style={{ animationDelay: '1s' }}></div>
+          <div className="bg-gradient-to-br from-red-200 to-red-300 rounded-lg animate-float" style={{ animationDelay: '1s' }}> <img src="/assets/Untitled-2.jpg" alt="description" className="w-full h-auto rounded-lg" /></div>
           <div className="bg-gradient-to-br from-green-200 to-green-300 rounded-lg animate-float" style={{ animationDelay: '2s' }}></div>
           <div className="bg-gradient-to-br from-purple-200 to-purple-300 rounded-lg animate-float" style={{ animationDelay: '0.5s' }}></div>
           <div className="bg-gradient-to-br from-yellow-200 to-yellow-300 rounded-lg animate-float" style={{ animationDelay: '1.5s' }}></div>
