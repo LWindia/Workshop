@@ -10,10 +10,10 @@ const HeroSection = () => {
   return (
     <section className="min-h-screen flex items-center justify-center relative bg-white overflow-hidden">
       {/* Background Collage */}
-      <div className="absolute inset-0 opacity-20">
+      <div className="absolute inset-0 opacity-16">
         <div className="grid grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-2 h-full">
           {/* Workshop Images Collage */}
-          <div className="bg-gradient-to-br from-blue-200 to-blue-300 rounded-lg animate-float">  <img src="/assets/Untitled-2 (1).jpg" alt="description" className="w-full h-auto rounded-lg" />
+          <div className="bg-gradient-to-br from-blue-200 to-blue-300 rounded-lg animate-float">  <img src="/assets/Untitled-2.jpg" alt="description" className="w-full h-auto rounded-lg" />
            </div>
           <div className="bg-gradient-to-br from-red-200 to-red-300 rounded-lg animate-float" style={{ animationDelay: '1s' }}> <img src="/assets/Untitled-2.jpg" alt="description" className="w-full h-auto rounded-lg" /></div>
           <div className="bg-gradient-to-br from-green-200 to-green-300 rounded-lg animate-float" style={{ animationDelay: '2s' }}> <img src="/assets/Untitled-2.jpg" alt="description" className="w-full h-auto rounded-lg" /></div>
