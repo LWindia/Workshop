@@ -42,63 +42,27 @@ const HeroSection = () => {
           0%, 100% { transform: translateY(0px); }
           50% { transform: translateY(-10px); }
         }
-        
         @keyframes fade-in-up {
-          from {
-            opacity: 0;
-            transform: translateY(30px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
+          from { opacity: 0; transform: translateY(30px); }
+          to { opacity: 1; transform: translateY(0); }
         }
-        
         @keyframes slide-in-left {
-          from {
-            opacity: 0;
-            transform: translateX(-50px);
-          }
-          to {
-            opacity: 1;
-            transform: translateX(0);
-          }
+          from { opacity: 0; transform: translateX(-50px); }
+          to { opacity: 1; transform: translateX(0); }
         }
-        
         @keyframes icon-bounce {
           0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
           40% { transform: translateY(-3px); }
           60% { transform: translateY(-2px); }
         }
-        
-        .animate-float {
-          animation: float 3s ease-in-out infinite;
-        }
-        
-        .animate-fade-in-up {
-          animation: fade-in-up 0.8s ease-out forwards;
-          opacity: 0;
-        }
-        
-        .animate-slide-in-left {
-          animation: slide-in-left 0.8s ease-out forwards;
-          opacity: 0;
-        }
-        
-        .icon-bounce {
-          animation: icon-bounce 2s infinite;
-        }
-        
-        .hover-lift:hover {
-          transform: translateY(-2px);
-          transition: transform 0.3s ease;
-        }
-        
-        .hover-scale:hover {
-          transform: scale(1.05);
-          transition: transform 0.3s ease;
-        }
-        
+
+        .animate-float { animation: float 3s ease-in-out infinite; }
+        .animate-fade-in-up { animation: fade-in-up 0.8s ease-out forwards; opacity: 0; }
+        .animate-slide-in-left { animation: slide-in-left 0.8s ease-out forwards; opacity: 0; }
+        .icon-bounce { animation: icon-bounce 2s infinite; }
+        .hover-lift:hover { transform: translateY(-2px); transition: transform 0.3s ease; }
+        .hover-scale:hover { transform: scale(1.05); transition: transform 0.3s ease; }
+
         .stagger-1 { animation-delay: 0.1s; }
         .stagger-2 { animation-delay: 0.2s; }
         .stagger-3 { animation-delay: 0.3s; }
@@ -107,20 +71,30 @@ const HeroSection = () => {
         .stagger-6 { animation-delay: 0.6s; }
         .stagger-7 { animation-delay: 0.7s; }
         .stagger-8 { animation-delay: 0.8s; }
-       
+        
+        /* Mobile-specific styles */
+        @media (max-width: 768px) {
+          .animate-float {
+            animation: float 4s ease-in-out infinite;
+          }
+          .mobile-bg-grid {
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1px;
+          }
+        }
       `}</style>
-      
+
       <section className="min-h-screen flex items-center justify-center relative bg-white overflow-hidden">
         {/* Background Collage */}
-        <div className="absolute inset-0 opacity-14.5">
-          <div className="grid grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-2 h-full p-4">
+        <div className="absolute inset-0 opacity-14.5 z-0">
+          <div className="mobile-bg-grid grid grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-2 md:gap-2 h-full p-2 md:p-4">
             {workshopImages.map((imageSrc, index) => (
               <div
                 key={index}
                 className={`bg-gradient-to-br ${gradients[index]} rounded-lg overflow-hidden animate-float relative group h-full`}
                 style={{ 
                   animationDelay: animationDelays[index],
-                  minHeight: 'calc(100vh / 6)'
+                  minHeight: 'calc(100vh / 8)'
                 }}
               >
                 <img 
@@ -128,20 +102,22 @@ const HeroSection = () => {
                   alt={`Workshop moment ${index + 1}`} 
                   className="w-full h-full object-cover rounded-lg transition-transform duration-300 group-hover:scale-110"
                   onError={(e) => {
-                    // If image fails to load, show gradient background
                     (e.target as HTMLImageElement).style.display = 'none';
                   }}
                 />
-                {/* Overlay for better text readability */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent rounded-lg"></div>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent rounded-lg"></div>
               </div>
             ))}
           </div>
         </div>
 
-        <div className="container mx-auto px-6 text-center z-10 relative">
+        {/* Black overlay */}
+        <div className="absolute inset-0 bg-black/70 z-10"></div>
+
+        {/* Hero Content */}
+        <div className="container mx-auto px-4 md:px-6 text-center z-20 relative">
           <div className="max-w-4xl mx-auto">
-            <h1 className="text-5xl md:text-7xl font-bold mb-6 text-black">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold mb-4 md:mb-6 text-white">
               <div className="leading-tight">
                 <div className="animate-slide-in-left stagger-1">THE BIGGEST ONE-DAY</div>
                 <div className="animate-slide-in-left stagger-2">
@@ -151,62 +127,56 @@ const HeroSection = () => {
               </div>
             </h1>
 
-            <p className="text-xl md:text-2xl text-[#FF0000] font-bold mb-2 animate-fade-in-up stagger-4">
-              JAIPUR EDITION
+            <p className="text-lg sm:text-xl md:text-2xl font-bold mb-2 animate-fade-in-up stagger-4">
+              <span className="bg-white/90 backdrop-blur-sm px-3 py-2 md:px-4 md:py-2 shadow-lg text-[#FF0000] rounded-full">
+                JAIPUR EDITION
+              </span>
             </p>
 
-            <p className="text-lg md:text-xl text-gray-900 font-medium mb-4 animate-fade-in-up stagger-5">
+            <p className="text-base sm:text-lg md:text-xl text-white font-bold mb-3 md:mb-4 animate-fade-in-up stagger-5">
               Learn | Build | Network – All in 1 Day!
             </p>
-            
-            <p className="text-lg text-gray-900 mb-8 animate-fade-in-up stagger-6">
+
+            <p className="text-lg sm:text-xl font-bold text-white mb-6 md:mb-8 animate-fade-in-up stagger-6 px-2">
               Hands-on Learning Experience at G D Badaya Auditorium, Mansarovar Jaipur
             </p>
 
-            <div className="flex flex-wrap justify-center gap-4 mb-8 text-sm">
-              <div className="flex items-center gap-2 bg-white/90 backdrop-blur-sm px-4 py-2 rounded-full shadow-lg border hover-lift animate-fade-in-up stagger-7">
-                <Calendar className="w-4 h-4 text-red-500 icon-bounce" />
-                <span className="font-medium">This Saturday - 26th July 2025</span>
+            <div className="flex flex-wrap justify-center gap-2 sm:gap-3 md:gap-4 mb-6 md:mb-8 text-xs sm:text-sm px-2">
+              <div className="flex items-center gap-1 sm:gap-2 bg-white/90 backdrop-blur-sm px-2 py-1 sm:px-3 sm:py-2 md:px-4 md:py-2 rounded-full shadow-lg border hover-lift animate-fade-in-up stagger-7">
+                <Calendar className="w-3 h-3 sm:w-4 sm:h-4 text-red-500 icon-bounce" />
+                <span className="font-bold">This Saturday - 26th July 2025</span>
               </div>
-              <div className="flex items-center gap-2 bg-white/90 backdrop-blur-sm px-4 py-2 rounded-full shadow-lg border hover-lift animate-fade-in-up stagger-8">
-                <Clock className="w-4 h-4 text-red-500 icon-bounce text-[#ff0000]" />
-                <span className="font-medium">11:00 AM Onwards</span>
+              <div className="flex items-center gap-1 sm:gap-2 bg-white/90 backdrop-blur-sm px-2 py-1 sm:px-3 sm:py-2 md:px-4 md:py-2 rounded-full shadow-lg border hover-lift animate-fade-in-up stagger-8">
+                <Clock className="w-3 h-3 sm:w-4 sm:h-4 text-red-500 icon-bounce" />
+                <span className="font-bold">11:00 AM Onwards</span>
               </div>
-              <div className="flex items-center gap-2 bg-white/90 backdrop-blur-sm px-4 py-2 rounded-full shadow-lg border hover-lift animate-fade-in-up">
-                <Award className="w-4 h-4 text-red-500 icon-bounce" />
-                <span className="font-medium">Participation Certificate</span>
+              <div className="flex items-center gap-1 sm:gap-2 bg-white/90 backdrop-blur-sm px-2 py-1 sm:px-3 sm:py-2 md:px-4 md:py-2 rounded-full shadow-lg border hover-lift animate-fade-in-up">
+                <Award className="w-3 h-3 sm:w-4 sm:h-4 text-red-500 icon-bounce" />
+                <span className="font-bold">Participation Certificate</span>
               </div>
-              <div className="flex items-center gap-2 bg-white/90 backdrop-blur-sm px-4 py-2 rounded-full shadow-lg border hover-lift animate-fade-in-up">
-                <Users className="w-4 h-4 text-red-500 icon-bounce" />
-                <span className="font-medium">Hands On Project</span>
+              <div className="flex items-center gap-1 sm:gap-2 bg-white/90 backdrop-blur-sm px-2 py-1 sm:px-3 sm:py-2 md:px-4 md:py-2 rounded-full shadow-lg border hover-lift animate-fade-in-up">
+                <Users className="w-3 h-3 sm:w-4 sm:h-4 text-red-500 icon-bounce" />
+                <span className="font-bold">Hands On Project</span>
               </div>
             </div>
 
-            <div className="space-y-4">
+            <div className="space-y-3 md:space-y-4 px-4">
               <button
                 onClick={scrollToRegistration}
-                className="bg-[#FF0000] hover:bg-red-600 text-white px-8 py-4 rounded-lg text-lg font-medium transition-all duration-300 shadow-xl hover-scale animate-fade-in-up transform hover:shadow-2xl"
+                className="bg-[#FF0000] hover:bg-red-600 text-white px-6 py-3 sm:px-8 sm:py-4 rounded-lg text-base sm:text-lg font-medium transition-all duration-300 shadow-xl hover-scale animate-fade-in-up transform hover:shadow-2xl w-full sm:w-auto"
               >
                 Register Now - FREE Entry
               </button>
 
-              <p className="text-green-800 ont-bold text-xl animate-fade-in-up">
-                🎉 Absolutely FREE Entry 🎉
+              <p className="text-green-400 font-bold text-lg sm:text-xl animate-fade-in-up">
+                Absolutely FREE Entry
               </p>
-              
-              <div className="flex flex-wrap justify-center gap-6 text-sm text-gray-600 mt-6">
-                <span className="flex items-center gap-1">
-                  ✅ <strong>Free Registration</strong>
-                </span>
-                <span className="flex items-center gap-1">
-                  ✅ <strong>Free Certificate</strong>
-                </span>
-                <span className="flex items-center gap-1">
-                  ✅ <strong>Free Learning Materials</strong>
-                </span>
-                <span className="flex items-center gap-1">
-                  ✅ <strong>Free Networking</strong>
-                </span>
+
+              <div className="grid grid-cols-2 sm:flex sm:flex-wrap justify-center gap-3 sm:gap-6 text-xs sm:text-sm text-white mt-4 md:mt-6">
+                <span className="flex items-center gap-1 font-bold justify-center sm:justify-start">✅ <strong>Free Registration</strong></span>
+                <span className="flex items-center gap-1 font-bold justify-center sm:justify-start">✅ <strong>Free Certificate</strong></span>
+                <span className="flex items-center gap-1 font-bold justify-center sm:justify-start">✅ <strong>Free Learning Materials</strong></span>
+                <span className="flex items-center gap-1 font-bold justify-center sm:justify-start">✅ <strong>Free Networking</strong></span>
               </div>
             </div>
           </div>
